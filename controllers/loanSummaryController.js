@@ -32,7 +32,7 @@ export const getAllLoans = async (req, res) => {
     let query = {};
 
     if (customerCode) {
-      query.customerCode = customerCode; // ✅ filter by customer
+      query.customerCode = customerCode; 
     }
 
     if (search) {
