@@ -22,7 +22,7 @@ const login = async (req, res) => {
         role: user.role,
       },
       process.env.JWT_KEY,
-      { expiresIn: "10d" } 
+      { expiresIn: "8h" } 
     );
 
     return res.status(200).json({
