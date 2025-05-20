@@ -5,6 +5,9 @@ import authRouter from './routes/auth.js'
 import customerRouter from './routes/customerRoutes.js'
 import loanRoutes from './routes/loanRoutes.js'
 import loanPaymentRoutes from './routes/loanPaymentRoutes.js'
+import chatbotRoutes from './routes/chatbotRoutes.js'
+
+
 connectToDatabase()
  const app  = express()
  app.use(cors())
@@ -14,6 +17,8 @@ connectToDatabase()
  app.use('/api',customerRouter );
   app.use('/api',loanRoutes );
    app.use('/api',loanPaymentRoutes );
+
+   app.use('/api/chatbot', chatbotRoutes);
 
  app.listen(process.env.PORT, () =>{
     console.log(`Server is running on port ${process.env.PORT}`)
