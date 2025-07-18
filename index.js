@@ -19,6 +19,10 @@ import loanRoutes from './routes/loanRoutes.js';
 import loanPaymentRoutes from './routes/loanPaymentRoutes.js';
 import chatbotRoutes from './routes/chatbotRoutes.js';
 import pdfRoutes from './routes/pdfRoutes.js';
+import expenseRoute from './routes/expenseRoutes.js'
+import incomeRoute from './routes/incomeRoutes.js'
+import budgetSummaryRoute from './routes/budgetSummaryRoutes.js'
+
 
 
 connectToDatabase();
@@ -28,7 +32,8 @@ const app = express();
 
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://loan-registry-frontend.vercel.app'
+  'https://loan-registry-frontend.vercel.app',
+  'http://56.228.24.153:5173'
 ];
 
 app.use(cors({
@@ -50,6 +55,9 @@ app.use('/api', loanRoutes);
 app.use('/api', loanPaymentRoutes);
 app.use('/api/chatbot', chatbotRoutes);
 app.use('/api', pdfRoutes);
+app.use('/api/expenses', expenseRoute); 
+app.use('/api/income',incomeRoute ); 
+app.use('/api/budget',budgetSummaryRoute ); 
 
 
 app.listen(process.env.PORT || 3000, () => {
